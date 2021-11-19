@@ -10,31 +10,43 @@ import Foundation
 struct Convert {
     
     static func convert(_ input: Double, from firstType: String, to secondType: String) -> Double {
-        var output = 0.0
+        
+        
         if firstType == "Celsius" && secondType == "Fahrenheit" || firstType == "Fahrenheit" && secondType == "Celsius" {
-           output = convertCelsiusAndFahrenheit(input, from: firstType, to: secondType)
+            return convertCelsiusAndFahrenheit(input, from: firstType, to: secondType)
+        } else if firstType == "Celsius" && secondType == "Kelvin" || firstType == "Kelvin" && secondType == "Celsius" {
+            return convertCelsiusAndKelvin(input, from: firstType, to: secondType)
+        } else if firstType == "Fahrenheit" && secondType == "Kelvin" || firstType == "Kelvin" && secondType == "Fahrenheit" {
+            return convertFahrenheitAndKelvin(input, from: firstType, to: secondType)
+        } else {
+            return input
         }
-        
-        return output
     }
     
-   static private func convertCelsiusAndFahrenheit(_ input: Double, from firstType: String, to secondType: String) -> Double {
-       var output = 0.0
-       
-       if firstType == "Celsius" {
-           output = input * 1.8 + 32
-       } else {
-           output = (input - 32) * 5 / 9
-       }
-       
-       return output
+    static private func convertCelsiusAndFahrenheit(_ input: Double, from firstType: String, to secondType: String) -> Double {
+        
+        if firstType == "Celsius" {
+            return input * 1.8 + 32
+        } else {
+            return (input - 32) * 1.8
+        }
     }
     
-    private func convertCelsiusAndKelvin() {
+    static private func convertCelsiusAndKelvin(_ input: Double, from firstType: String, to secondType: String) -> Double {
         
+        if firstType == "Celsius" {
+            return input + 273.15
+        } else {
+            return input - 273.15
+        }
     }
     
-    private func convertFahrenheitAndKelvin() {
+    static private func convertFahrenheitAndKelvin(_ input: Double, from firstType: String, to secondType: String) -> Double {
         
+        if firstType == "Fahrenheit" {
+            return (input - 32) * 1.8 + 273.15
+        } else {
+            return   (input - 273) * 1.8 + 32
+        }
     }
 }
