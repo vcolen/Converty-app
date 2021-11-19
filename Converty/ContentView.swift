@@ -85,6 +85,14 @@ struct ContentView: View {
                     TextField("Measure", value: $inputMeasure, format: .number
                     )
                         .keyboardType(.decimalPad)
+                } header: {
+                    Text("Measure in \(rootUnit)")
+                }
+                
+                Section {
+                    //Text(0)
+                } header: {
+                    Text("Measure in \(desiredUnit)")
                 }
             }
             .navigationTitle("Converty")
