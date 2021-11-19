@@ -10,43 +10,52 @@ import SwiftUI
 struct ContentView: View {
     let measureTypes = ["Temperature", "Length", "Time", "Volume"]
     let units = [
-        "Temperature" : [
-            "Celsius",
-            "Fahrenheit",
-            "Kelvin"
-        ],
-        "Length" : [
-            "Meters",
-            "Kilometers",
-            "Feet",
-            "Yards",
-            "Miles"
-        ],
-        "Time" : [
-            "Seconds",
-            "Minutes",
-            "Hours",
-            "Days"
-        ],
-        "Volume" : [
-            "Milliliters",
-            "Liters",
-            "Cups",
-            "Pints",
-            "Gallons"
-        ]
+        "Temperature" :
+            [
+                "Celsius",
+                "Fahrenheit",
+                "Kelvin"
+            ],
+        
+        "Length" :
+            [
+                "Meters",
+                "Kilometers",
+                "Feet",
+                "Yards",
+                "Miles"
+            ],
+        
+        "Time" :
+            [
+                "Seconds",
+                "Minutes",
+                "Hours",
+                "Days"
+            ],
+        
+        "Volume" :
+            [
+                "Milliliters",
+                "Liters",
+                "Cups",
+                "Pints",
+                "Gallons"
+            ]
     ]
     
     @State private var chosenType = "Temperature"
+    @State private var rootUnit = "Kelvin"
+    @State private var chosenUnit = "Celsius"
+    @State private var inputMeasure = 0.0
     
     var chosenTypeMeasures: [String] {
-        return units[chosenType]!
+        units[chosenType]!
     }
     
-    @State private var rootUnit = "Kelvin"
-    @State private var desiredUnit = "Celsius"
-    
-    @State private var inputMeasure = 0.0
+    var outputMeasure: Double {
+        Convert.convert(inputMeasure, from: rootUnit, to: chosenUnit)
+    }
     
     var body: some View {
         NavigationView {
@@ -62,23 +71,19 @@ struct ContentView: View {
                 }
                 
                 Section {
-                    Picker("Unit", selection: $rootUnit) {
+                    Picker("From", selection: $rootUnit) {
                         ForEach(chosenTypeMeasures, id: \.self) {
                             Text($0)
                         }
                     }
-                } header: {
-                    Text("Unit you want to convert from")
                 }
                 
                 Section {
-                    Picker("Unit", selection: $desiredUnit) {
+                    Picker("To", selection: $chosenUnit) {
                         ForEach(chosenTypeMeasures, id: \.self) {
                             Text($0)
                         }
                     }
-                } header: {
-                    Text("Unit you want to convert to")
                 }
                 
                 Section {
@@ -86,13 +91,13 @@ struct ContentView: View {
                     )
                         .keyboardType(.decimalPad)
                 } header: {
-                    Text("Measure in \(rootUnit)")
+                    Text("Input in \(rootUnit)")
                 }
                 
                 Section {
-                    //Text(0)
+                    Text(outputMeasure.decimalPoints(2))
                 } header: {
-                    Text("Measure in \(desiredUnit)")
+                    Text("Output in \(chosenUnit)")
                 }
             }
             .navigationTitle("Converty")
