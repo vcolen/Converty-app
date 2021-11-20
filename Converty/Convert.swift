@@ -263,7 +263,7 @@ struct Convert {
         value * 1_760
     }
     
-    //MARK: - Time convertion
+    //MARK: - Time Conversion
     
     static private func convertSecondsToMinutes(_ value: Double) -> Double {
         value / 60
