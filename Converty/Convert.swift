@@ -177,6 +177,25 @@ struct Convert {
                 return input
             }
             
+        case "Volume":
+            switch firstType {
+            case "Milliliters":
+                switch secondType {
+                case "Liters":
+                }
+                
+            case "Liters":
+                
+            case "Cups":
+                
+            case "Pints":
+                
+            case "Gallons":
+                
+            default:
+                return input
+            }
+
         default:
             return input
         }
@@ -348,6 +367,26 @@ struct Convert {
     static private func convertDaysToHours(_ value: Double) -> Double {
         value * 24
     }
+    
+    
+    //MARK: - Volume Conversion
+    
+    static private func convertMillilitersToLiters(_ value: Double) -> Double {
+        value * 1000
+    }
+    
+    static private func convertMillilitersToCups(_ value: Double) -> Double {
+        value / 237
+    }
+    
+    static private func convertMillilitersToPints(_ value: Double) -> Double {
+        value * 473
+    }
+    
+    static private func convertMillilitersToGallons(_ value: Double) -> Double {
+        value * 3785
+    }
+    
     
 }
 
