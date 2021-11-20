@@ -123,26 +123,59 @@ struct Convert {
                 return input
             }
             
-//        case "Time":
-//            switch firstType {
-//                case "Seconds"
-//
-//                case "Minutes"
-//
-//                case "Hours"
-//
-//                case "Days"
-//
-//
-//            }
-            
-//            "Time" :
-//                [
-//                    "Seconds",
-//                    "Minutes",
-//                    "Hours",
-//                    "Days"
-//                ],
+        case "Time":
+            switch firstType {
+            case "Seconds":
+                switch secondType {
+                case "Minutes":
+                    return convertSecondsToMinutes(input)
+                case "Hours":
+                    return convertSecondsToHours(input)
+                case "Days":
+                    return convertSecondsToDays(input)
+                default:
+                    return input
+                }
+                
+            case "Minutes":
+                switch secondType {
+                case "Seconds":
+                    return convertMinutesToSeconds(input)
+                case "Hours":
+                    return convertMinutesToHours(input)
+                case "Days":
+                    return convertMinutesToDays(input)
+                default:
+                    return input
+                }
+                
+            case "Hours":
+                switch secondType {
+                case "Seconds":
+                    return convertHoursToSeconds(input)
+                case "Minutes":
+                    return convertHoursToMinutes(input)
+                case "Days":
+                    return convertHoursToDays(input)
+                default:
+                    return input
+                }
+                
+            case "Days":
+                switch secondType {
+                case "Seconds":
+                    return convertDaysToSeconds(input)
+                case "Minutes":
+                    return convertDaysToMinutes(input)
+                case "Hours":
+                    return convertDaysToHours(input)
+                default:
+                    return input
+                }
+                
+            default:
+                return input
+            }
             
         default:
             return input
