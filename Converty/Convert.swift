@@ -98,15 +98,15 @@ struct Convert {
     }
     
     static private func convertMeterToFeet(_ value: Double) -> Double {
-        value * 3.28084
+        value * 3.28
     }
     
     static private func convertMeterToYard(_ value: Double) -> Double {
-        value / 0.9144
+        value / 0.91
     }
     
     static private func convertMeterToMile(_ value: Double) -> Double {
-        value / 1_609.344
+        value / 1_609.34
     }
     
     static private func convertKilometerToMeter(_ value: Double) -> Double {
@@ -122,7 +122,23 @@ struct Convert {
     }
     
     static private func convertKilometerToMile(_ value: Double) -> Double {
-        value * 0.62137
+        value * 0.62
+    }
+    
+    static private func convertFeetToMeter(_ value: Double) -> Double {
+        value * 0.31
+    }
+    
+    static private func convertFeetToKilometer(_ value: Double) -> Double {
+        value * 0.0003
+    }
+    
+    static private func convertFeetToYard(_ value: Double) -> Double {
+        value * 0.33
+    }
+    
+    static private func convertFeetToMile(_ value: Double) -> Double {
+        value / 5_280
     }
     
     
