@@ -75,6 +75,7 @@ struct Convert {
         value + 273.15
     }
     
+    
     static private func convertFahrenheitToCelsius(_ value: Double) -> Double {
         (value - 32) * 1.8
     }
@@ -82,6 +83,7 @@ struct Convert {
     static private func convertFahrenheitToKelvin(_ value: Double) -> Double {
         (value - 32) * 1.8 + 273.15
     }
+    
     
     static private func convertKelvinToCelsius(_ value: Double) -> Double {
         value - 273.15
@@ -109,6 +111,7 @@ struct Convert {
         value / 1_609.34
     }
     
+    
     static private func convertKilometerToMeter(_ value: Double) -> Double {
         value * 1000
     }
@@ -125,6 +128,7 @@ struct Convert {
         value * 0.62
     }
     
+    
     static private func convertFeetToMeter(_ value: Double) -> Double {
         value * 0.31
     }
@@ -139,6 +143,23 @@ struct Convert {
     
     static private func convertFeetToMile(_ value: Double) -> Double {
         value / 5_280
+    }
+    
+    
+    static private func convertYardToMeter(_ value: Double) -> Double {
+        value * 0.91
+    }
+    
+    static private func convertYardToKilometer(_ value: Double) -> Double {
+        value * 0.00091
+    }
+    
+    static private func convertYardToFeet(_ value: Double) -> Double {
+        value * 3
+    }
+    
+    static private func convertYardToMile(_ value: Double) -> Double {
+        value / 1_760
     }
     
     
