@@ -44,7 +44,7 @@ struct Convert {
             switch firstType {
             case Temp.celsius.rawValue:
                 switch secondType {
-                case Temp.kelvin.rawValue:
+                case Temp.fahrenheit.rawValue:
                     return convertCelsiusToFahrenheit(input)
                 case Temp.kelvin.rawValue:
                     return convertCelsiusToKelvin(input)
@@ -466,11 +466,11 @@ struct Convert {
     }
     
     static private func convertMillilitersToPints(_ value: Double) -> Double {
-        value * 473
+        value / 473
     }
     
     static private func convertMillilitersToGallons(_ value: Double) -> Double {
-        value * 3785
+        value / 3785
     }
     
     
