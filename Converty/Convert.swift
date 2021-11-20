@@ -9,35 +9,64 @@ import Foundation
 
 struct Convert {
     
+    private enum Temp: String {
+        case celsius = "Celsius"
+        case fahrenheit = "Fahrenheit"
+        case kelvin = "Kelvin"
+    }
+    
+    private enum Len: String {
+        case meters = "Meters"
+        case kilometers = "Kilometers"
+        case feet = "Feet"
+        case yards = "Yards"
+        case miles = "Miles"
+    }
+    
+    private enum Time: String {
+        case seconds = "Seconds"
+        case minutes = "Minutes"
+        case hours = "Hours"
+        case days = "Days"
+    }
+    
+    private enum Vol: String {
+        case milliliters = "Milliliters"
+        case liters = "Liters"
+        case cups = "Cups"
+        case pints = "Pints"
+        case gallons = "Gallons"
+    }
+    
     static func convert(_ input: Double, from firstType: String, to secondType: String, measureType: String) -> Double {
         switch measureType {
         case "Temperature":
             switch firstType {
-            case "Celsius":
+            case Temp.celsius.rawValue:
                 switch secondType {
-                case "Fahrenheit":
+                case Temp.kelvin.rawValue:
                     return convertCelsiusToFahrenheit(input)
-                case "Kelvin":
+                case Temp.kelvin.rawValue:
                     return convertCelsiusToKelvin(input)
                 default:
                     return input
                 }
                 
-            case "Fahrenheit":
+            case Temp.fahrenheit.rawValue:
                 switch secondType {
-                case "Celsius":
+                case Temp.celsius.rawValue:
                     return convertFahrenheitToCelsius(input)
-                case "Kelvin":
+                case Temp.kelvin.rawValue:
                     return convertFahrenheitToKelvin(input)
                 default:
                     return input
                 }
                 
-            case "Kelvin":
+            case Temp.kelvin.rawValue:
                 switch secondType {
-                case "Celsius":
+                case Temp.celsius.rawValue:
                     return convertKelvinToCelsius(input)
-                case "Fahrenheit":
+                case Temp.fahrenheit.rawValue:
                     return convertKelvinToFahrenheit(input)
                 default:
                     return input
@@ -182,15 +211,72 @@ struct Convert {
             case "Milliliters":
                 switch secondType {
                 case "Liters":
+                    return convertMillilitersToLiters(input)
+                case "Cups":
+                    return convertMillilitersToCups(input)
+                case "Pints":
+                    return convertMillilitersToPints(input)
+                case "Gallons":
+                    return convertMillilitersToGallons(input)
+                default:
+                    return input
                 }
                 
             case "Liters":
+                switch secondType {
+                case "Milliliters":
+                    return convertLitersToMilliliters(input)
+                case "Cups":
+                    return convertLitersToCups(input)
+                case "Pints":
+                    return convertLitersToPints(input)
+                case "Gallons":
+                    return convertLitersToGallons(input)
+                default:
+                    return input
+                }
                 
-            case "Cups":
+            case Vol.cups.rawValue:
+                switch secondType {
+                case Vol.milliliters.rawValue:
+                    return convertCupsToMilliliters(input)
+                case Vol.liters.rawValue:
+                    return convertCupsToLiters(input)
+                case Vol.pints.rawValue:
+                    return convertCupsToPints(input)
+                case Vol.gallons.rawValue:
+                    return convertCupsToGallons(input)
+                default:
+                    return input
+                }
                 
-            case "Pints":
+            case Vol.pints.rawValue:
+                switch secondType {
+                case Vol.milliliters.rawValue:
+                    return convertPintsToMilliliters(input)
+                case Vol.liters.rawValue:
+                    return convertPintsToLiters(input)
+                case Vol.cups.rawValue:
+                    return convertPintsToCups(input)
+                case Vol.gallons.rawValue:
+                    return convertPintsToGallons(input)
+                default:
+                    return input
+                }
                 
-            case "Gallons":
+            case Vol.gallons.rawValue:
+                switch secondType {
+                case Vol.milliliters.rawValue:
+                    return convertGallonsToMilliliters(input)
+                case Vol.liters.rawValue:
+                    return convertGallonsToLiters(input)
+                case Vol.cups.rawValue:
+                    return convertGallonsToCups(input)
+                case Vol.pints.rawValue:
+                    return convertGallonsToPints(input)
+                default:
+                    return input
+                }
                 
             default:
                 return input
@@ -456,7 +542,3 @@ struct Convert {
     }
     
 }
-
-
-
-
