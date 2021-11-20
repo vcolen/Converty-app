@@ -76,15 +76,14 @@ struct ContentView: View {
                             Text($0)
                         }
                     }
-                }
-                
-                Section {
                     Picker("To", selection: $chosenUnit) {
                         ForEach(chosenTypeMeasures, id: \.self) {
                             Text($0)
                         }
                     }
                 }
+                
+
                 
                 Section {
                     TextField("Measure", value: $inputMeasure, format: .number
