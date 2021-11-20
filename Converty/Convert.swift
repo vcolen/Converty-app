@@ -109,6 +109,22 @@ struct Convert {
         value / 1_609.344
     }
     
+    static private func convertKilometerToMeter(_ value: Double) -> Double {
+        value * 1000
+    }
+    
+    static private func convertKilometerToFeet(_ value: Double) -> Double {
+        value * 3280.84
+    }
+    
+    static private func convertKilometerToYard(_ value: Double) -> Double {
+        value * 1093.61
+    }
+    
+    static private func convertKilometerToMile(_ value: Double) -> Double {
+        value * 0.62137
+    }
+    
     
     
 }
