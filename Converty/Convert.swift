@@ -421,6 +421,23 @@ struct Convert {
         value / 18
     }
     
+    
+    static private func convertPintsToMilliliters(_ value: Double) -> Double {
+        value * 473
+    }
+    
+    static private func convertPintsToLiters(_ value: Double) -> Double {
+        value / 2.11
+    }
+    
+    static private func convertPintsToCups(_ value: Double) -> Double {
+        value * 2
+    }
+    
+    static private func convertPintsToGallons(_ value: Double) -> Double {
+        value / 8
+    }
+    
 }
 
 
