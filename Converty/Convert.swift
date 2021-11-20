@@ -277,6 +277,19 @@ struct Convert {
         value / (24 * 3_600)
     }
     
+    
+    static private func convertMinutesToSeconds(_ value: Double) -> Double {
+        value * 60
+    }
+    
+    static private func convertMinutesToHours(_ value: Double) -> Double {
+        value / 60
+    }
+    
+    static private func convertMinutesToDays(_ value: Double) -> Double {
+        value / (24 * 60)
+    }
+    
 }
 
 
