@@ -418,7 +418,7 @@ struct Convert {
     }
     
     static private func convertCupsToGallons(_ value: Double) -> Double {
-        value / 18
+        value / 16
     }
     
     
@@ -436,6 +436,23 @@ struct Convert {
     
     static private func convertPintsToGallons(_ value: Double) -> Double {
         value / 8
+    }
+    
+    
+    static private func convertGallonsToMilliliters(_ value: Double) -> Double {
+        value * 3785
+    }
+    
+    static private func convertGallonsToLiters(_ value: Double) -> Double {
+        value * 3.79
+    }
+    
+    static private func convertGallonsToCups(_ value: Double) -> Double {
+        value * 16
+    }
+    
+    static private func convertGallonsToPints(_ value: Double) -> Double {
+        value * 8
     }
     
 }
