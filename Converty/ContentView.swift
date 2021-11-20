@@ -54,7 +54,7 @@ struct ContentView: View {
     }
     
     var outputMeasure: Double {
-        Convert.convert(inputMeasure, from: rootUnit, to: chosenUnit)
+        Convert.convert(inputMeasure, from: rootUnit, to: chosenUnit, measureType: chosenType)
     }
     
     var body: some View {

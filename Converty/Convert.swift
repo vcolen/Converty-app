@@ -47,18 +47,102 @@ struct Convert {
                 return input
             }
             
-            //        case "Length":
-            //            switch firstType {
-            //            case "Meters":
-            //
-            //                case "Kilometers"
-            //
-            //                case "Feet"
-            //
-            //                case "Yards"
-            //
-            //                case "Miles"
-            //            }
+        case "Length":
+            switch firstType {
+            case "Meters":
+                switch secondType {
+                case "Kilometers":
+                    return convertMetersToKilometers(input)
+                case "Feet":
+                    return convertMetersToFeet(input)
+                case "Yards":
+                    return convertMetersToYards(input)
+                case "Miles":
+                    return convertMetersToMiles(input)
+                default:
+                    return input
+                }
+                
+            case "Kilometers":
+                switch secondType {
+                case "Meters":
+                    return convertKilometersToMeters(input)
+                case "Feet":
+                    return convertKilometersToFeet(input)
+                case "Yards":
+                    return convertKilometersToYards(input)
+                case "Miles":
+                    return convertKilometersToMiles(input)
+                default:
+                    return input
+                }
+                
+            case "Feet":
+                switch secondType {
+                case "Meters":
+                    return convertFeetToMeters(input)
+                case "Kilometers":
+                    return convertFeetToKilometers(input)
+                case "Yards":
+                    return convertFeetToYards(input)
+                case "Miles":
+                    return convertFeetToMiles(input)
+                default:
+                    return input
+                }
+                
+            case "Yards":
+                switch secondType {
+                case "Meters":
+                    return convertYardsToMeters(input)
+                case "Kilometers":
+                    return convertYardsToKilometers(input)
+                case "Feet":
+                    return convertYardsToFeet(input)
+                case "Miles":
+                    return convertYardsToMiles(input)
+                default:
+                    return input
+                }
+                
+            case "Miles":
+                switch secondType {
+                case "Meters":
+                    return convertMilesToMeters(input)
+                case "Kilometers":
+                    return convertMilesToKilometers(input)
+                case "Feet":
+                    return convertMilesToFeet(input)
+                case "Yards":
+                    return convertMilesToYards(input)
+                default:
+                    return input
+                }
+                
+            default:
+                return input
+            }
+            
+//        case "Time":
+//            switch firstType {
+//                case "Seconds"
+//
+//                case "Minutes"
+//
+//                case "Hours"
+//
+//                case "Days"
+//
+//
+//            }
+            
+//            "Time" :
+//                [
+//                    "Seconds",
+//                    "Minutes",
+//                    "Hours",
+//                    "Days"
+//                ],
             
         default:
             return input
@@ -94,90 +178,107 @@ struct Convert {
     }
     
     //MARK: - Length Conversion
-
-    static private func convertMeterToKilometer(_ value: Double) -> Double {
+    
+    static private func convertMetersToKilometers(_ value: Double) -> Double {
         value * 0.001
     }
     
-    static private func convertMeterToFeet(_ value: Double) -> Double {
+    static private func convertMetersToFeet(_ value: Double) -> Double {
         value * 3.28
     }
     
-    static private func convertMeterToYard(_ value: Double) -> Double {
+    static private func convertMetersToYards(_ value: Double) -> Double {
         value / 0.91
     }
     
-    static private func convertMeterToMile(_ value: Double) -> Double {
+    static private func convertMetersToMiles(_ value: Double) -> Double {
         value / 1_609.34
     }
     
     
-    static private func convertKilometerToMeter(_ value: Double) -> Double {
+    static private func convertKilometersToMeters(_ value: Double) -> Double {
         value * 1000
     }
     
-    static private func convertKilometerToFeet(_ value: Double) -> Double {
+    static private func convertKilometersToFeet(_ value: Double) -> Double {
         value * 3280.84
     }
     
-    static private func convertKilometerToYard(_ value: Double) -> Double {
+    static private func convertKilometersToYards(_ value: Double) -> Double {
         value * 1093.61
     }
     
-    static private func convertKilometerToMile(_ value: Double) -> Double {
+    static private func convertKilometersToMiles(_ value: Double) -> Double {
         value * 0.62
     }
     
     
-    static private func convertFeetToMeter(_ value: Double) -> Double {
+    static private func convertFeetToMeters(_ value: Double) -> Double {
         value * 0.31
     }
     
-    static private func convertFeetToKilometer(_ value: Double) -> Double {
+    static private func convertFeetToKilometers(_ value: Double) -> Double {
         value * 0.0003
     }
     
-    static private func convertFeetToYard(_ value: Double) -> Double {
+    static private func convertFeetToYards(_ value: Double) -> Double {
         value * 0.33
     }
     
-    static private func convertFeetToMile(_ value: Double) -> Double {
+    static private func convertFeetToMiles(_ value: Double) -> Double {
         value / 5_280
     }
     
     
-    static private func convertYardToMeter(_ value: Double) -> Double {
+    static private func convertYardsToMeters(_ value: Double) -> Double {
         value * 0.91
     }
     
-    static private func convertYardToKilometer(_ value: Double) -> Double {
+    static private func convertYardsToKilometers(_ value: Double) -> Double {
         value * 0.00091
     }
     
-    static private func convertYardToFeet(_ value: Double) -> Double {
+    static private func convertYardsToFeet(_ value: Double) -> Double {
         value * 3
     }
     
-    static private func convertYardToMile(_ value: Double) -> Double {
+    static private func convertYardsToMiles(_ value: Double) -> Double {
         value / 1_760
     }
     
     
-    static private func convertMileToMeter(_ value: Double) -> Double {
+    static private func convertMilesToMeters(_ value: Double) -> Double {
         value * 1_609.34
     }
     
-    static private func convertMileToKilometer(_ value: Double) -> Double {
+    static private func convertMilesToKilometers(_ value: Double) -> Double {
         value * 1.61
     }
     
-    static private func convertMileToFeet(_ value: Double) -> Double {
+    static private func convertMilesToFeet(_ value: Double) -> Double {
         value * 5280
     }
     
-    static private func convertMileToYard(_ value: Double) -> Double {
+    static private func convertMilesToYards(_ value: Double) -> Double {
         value * 1_760
     }
+    
+    //MARK: - Time convertion
+    
+    static private func convertSecondsToMinutes(_ value: Double) -> Double {
+        value / 60
+    }
+    
+    static private func convertSecondsToHours(_ value: Double) -> Double {
+        value / 3_600
+    }
+    
+    static private func convertSecondsToDays(_ value: Double) -> Double {
+        value / (24 * 3_600)
+    }
+    
 }
+
+
 
 
