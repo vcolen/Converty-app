@@ -78,71 +78,71 @@ struct Convert {
             
         case "Length":
             switch firstType {
-            case "Meters":
+            case Len.meters.rawValue :
                 switch secondType {
-                case "Kilometers":
+                case Len.kilometers.rawValue:
                     return convertMetersToKilometers(input)
-                case "Feet":
+                case Len.feet.rawValue:
                     return convertMetersToFeet(input)
-                case "Yards":
+                case Len.yards.rawValue:
                     return convertMetersToYards(input)
-                case "Miles":
+                case Len.miles.rawValue:
                     return convertMetersToMiles(input)
                 default:
                     return input
                 }
                 
-            case "Kilometers":
+            case Len.kilometers.rawValue:
                 switch secondType {
-                case "Meters":
+                case Len.meters.rawValue :
                     return convertKilometersToMeters(input)
-                case "Feet":
+                case Len.feet.rawValue:
                     return convertKilometersToFeet(input)
-                case "Yards":
+                case Len.yards.rawValue:
                     return convertKilometersToYards(input)
-                case "Miles":
+                case Len.miles.rawValue:
                     return convertKilometersToMiles(input)
                 default:
                     return input
                 }
                 
-            case "Feet":
+            case Len.feet.rawValue:
                 switch secondType {
-                case "Meters":
+                case Len.meters.rawValue :
                     return convertFeetToMeters(input)
-                case "Kilometers":
+                case Len.kilometers.rawValue:
                     return convertFeetToKilometers(input)
-                case "Yards":
+                case Len.yards.rawValue:
                     return convertFeetToYards(input)
-                case "Miles":
+                case Len.miles.rawValue:
                     return convertFeetToMiles(input)
                 default:
                     return input
                 }
                 
-            case "Yards":
+            case Len.yards.rawValue:
                 switch secondType {
-                case "Meters":
+                case Len.meters.rawValue :
                     return convertYardsToMeters(input)
-                case "Kilometers":
+                case Len.kilometers.rawValue:
                     return convertYardsToKilometers(input)
-                case "Feet":
+                case Len.feet.rawValue:
                     return convertYardsToFeet(input)
-                case "Miles":
+                case Len.miles.rawValue:
                     return convertYardsToMiles(input)
                 default:
                     return input
                 }
                 
-            case "Miles":
+            case Len.miles.rawValue:
                 switch secondType {
-                case "Meters":
+                case Len.meters.rawValue :
                     return convertMilesToMeters(input)
-                case "Kilometers":
+                case Len.kilometers.rawValue:
                     return convertMilesToKilometers(input)
-                case "Feet":
+                case Len.feet.rawValue:
                     return convertMilesToFeet(input)
-                case "Yards":
+                case Len.yards.rawValue:
                     return convertMilesToYards(input)
                 default:
                     return input
@@ -154,49 +154,49 @@ struct Convert {
             
         case "Time":
             switch firstType {
-            case "Seconds":
+            case Time.seconds.rawValue:
                 switch secondType {
-                case "Minutes":
+                case Time.minutes.rawValue:
                     return convertSecondsToMinutes(input)
-                case "Hours":
+                case Time.hours.rawValue:
                     return convertSecondsToHours(input)
-                case "Days":
+                case Time.days.rawValue:
                     return convertSecondsToDays(input)
                 default:
                     return input
                 }
                 
-            case "Minutes":
+            case Time.minutes.rawValue:
                 switch secondType {
-                case "Seconds":
+                case Time.seconds.rawValue:
                     return convertMinutesToSeconds(input)
-                case "Hours":
+                case Time.hours.rawValue:
                     return convertMinutesToHours(input)
-                case "Days":
+                case Time.days.rawValue:
                     return convertMinutesToDays(input)
                 default:
                     return input
                 }
                 
-            case "Hours":
+            case Time.hours.rawValue:
                 switch secondType {
-                case "Seconds":
+                case Time.seconds.rawValue:
                     return convertHoursToSeconds(input)
-                case "Minutes":
+                case Time.minutes.rawValue:
                     return convertHoursToMinutes(input)
-                case "Days":
+                case Time.days.rawValue:
                     return convertHoursToDays(input)
                 default:
                     return input
                 }
                 
-            case "Days":
+            case Time.days.rawValue:
                 switch secondType {
-                case "Seconds":
+                case Time.seconds.rawValue:
                     return convertDaysToSeconds(input)
-                case "Minutes":
+                case Time.minutes.rawValue:
                     return convertDaysToMinutes(input)
-                case "Hours":
+                case Time.hours.rawValue:
                     return convertDaysToHours(input)
                 default:
                     return input
@@ -208,29 +208,29 @@ struct Convert {
             
         case "Volume":
             switch firstType {
-            case "Milliliters":
+            case Vol.milliliters.rawValue:
                 switch secondType {
-                case "Liters":
+                case Vol.liters.rawValue:
                     return convertMillilitersToLiters(input)
-                case "Cups":
+                case Vol.cups.rawValue:
                     return convertMillilitersToCups(input)
-                case "Pints":
+                case Vol.pints.rawValue:
                     return convertMillilitersToPints(input)
-                case "Gallons":
+                case Vol.gallons.rawValue:
                     return convertMillilitersToGallons(input)
                 default:
                     return input
                 }
                 
-            case "Liters":
+            case Vol.liters.rawValue:
                 switch secondType {
-                case "Milliliters":
+                case Vol.milliliters.rawValue:
                     return convertLitersToMilliliters(input)
-                case "Cups":
+                case Vol.cups.rawValue:
                     return convertLitersToCups(input)
-                case "Pints":
+                case Vol.pints.rawValue:
                     return convertLitersToPints(input)
-                case "Gallons":
+                case Vol.gallons.rawValue:
                     return convertLitersToGallons(input)
                 default:
                     return input
@@ -458,7 +458,7 @@ struct Convert {
     //MARK: - Volume Conversion
     
     static private func convertMillilitersToLiters(_ value: Double) -> Double {
-        value * 1000
+        value / 1000
     }
     
     static private func convertMillilitersToCups(_ value: Double) -> Double {
@@ -475,7 +475,7 @@ struct Convert {
     
     
     static private func convertLitersToMilliliters(_ value: Double) -> Double {
-        value / 1000
+        value * 1000
     }
     
     static private func convertLitersToCups(_ value: Double) -> Double {
