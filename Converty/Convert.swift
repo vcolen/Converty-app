@@ -393,15 +393,32 @@ struct Convert {
     }
     
     static private func convertLitersToCups(_ value: Double) -> Double {
-        value * 4.227
+        value * 4.23
     }
     
     static private func convertLitersToPints(_ value: Double) -> Double {
-        value * 2.113
+        value * 2.11
     }
     
     static private func convertLitersToGallons(_ value: Double) -> Double {
-        value / 3.785
+        value / 3.79
+    }
+    
+    
+    static private func convertCupsToMilliliters(_ value: Double) -> Double {
+        value * 237
+    }
+    
+    static private func convertCupsToLiters(_ value: Double) -> Double {
+        value / 4.2
+    }
+    
+    static private func convertCupsToPints(_ value: Double) -> Double {
+        value / 2
+    }
+    
+    static private func convertCupsToGallons(_ value: Double) -> Double {
+        value / 18
     }
     
 }
