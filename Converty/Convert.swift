@@ -163,7 +163,21 @@ struct Convert {
     }
     
     
+    static private func convertMileToMeter(_ value: Double) -> Double {
+        value * 1_609.34
+    }
     
+    static private func convertMileToKilometer(_ value: Double) -> Double {
+        value * 1.61
+    }
+    
+    static private func convertMileToFeet(_ value: Double) -> Double {
+        value * 5280
+    }
+    
+    static private func convertMileToYard(_ value: Double) -> Double {
+        value * 1_760
+    }
 }
 
 
